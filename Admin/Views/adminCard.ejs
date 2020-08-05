@@ -1,0 +1,37 @@
+
+<% for( let i = 0; i < blogs.length; i++ ) { %>
+    <div class="col-auto col-md-4 mb-5">
+
+
+        <div class="card " style="width: 18rem;">
+            <div class="card-header">
+               <%= blogs[i].blogTitle %> 
+            </div>
+            <div class="card-body">
+              
+              <p class="card-text"> <%= blogs[i].blogDescription %> </p>
+              <div class="row">
+             <div class="col-auto col-md-5">
+                <a href='dashboard/blogDetail/<%= blogs[i].blogID %>' class="btn btn-primary custom-href">Read More</a>
+             </div>
+             <div class="col-auto col-md-3">
+                <a href='dashboard/editBlog/<%= blogs[i].blogID %>' class="btn btn-info custom-href">Edit</a>
+             </div>
+
+             <div class="col-auto col-md-1">
+                <a href='dashboard/deleteBlog/<%= blogs[i].blogID %>' class="btn btn-danger custom-href">Delete</a>
+             </div>
+              
+              
+             
+            </div>
+            </div>
+        
+            <div class="card-footer">
+                <p><%= blogs[i].blogDate.toISOString() %> </p>
+             </div>
+        
+          </div>
+        
+        </div>
+<% } %>

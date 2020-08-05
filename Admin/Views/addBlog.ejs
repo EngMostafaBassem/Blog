@@ -1,0 +1,39 @@
+
+<%- include ('../../Shared/Views/header.ejs') -%> 
+
+
+<form class="form mt-5" action="/dashboard/<%=typeof blog !='undefined'?'updateBlog':'addBlog' %>" method="POST">
+
+    <div class="row d-flex justify-content-center">
+        
+      <input type="hidden" name="blogID" value="<%= (typeof blog !='undefined')?blog.blogID:'' %>"/>
+
+      <div class="col-auto col-md-6">
+        <label >Article Title</label>
+        <input type="text" class="form-control" name="blogTitle"  value="<%= (typeof blog !='undefined')?blog.blogTitle:'' %> "/>
+      </div>
+
+
+   </div>
+
+
+
+   <div class="row d-flex justify-content-center mt-5" >
+        
+    <div class="col-auto col-md-6">
+      <label >Article</label>
+      <textarea  class="form-control" name="blogDescription" rows="6" ><%= (typeof blog !='undefined')?blog.blogDescription:'' %> </textarea>
+    </div>
+  </div>
+
+
+    <div class="row d-flex justify-content-center mt-5" >     
+      <div class="col-auto col-md-6 d-flex justify-content-center">
+        <input type="submit" class="btn btn-info" value="Add" style="width: 100%;"/>  
+       </div>
+
+       </div>
+</form>
+
+</body>
+</html>
