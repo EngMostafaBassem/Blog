@@ -10,15 +10,15 @@
 
             <div class="card">
                 <div class="card-header">
-                   <%= blog.blogTitle %> 
+                   <%= blog.title %> 
                 </div>
 
                 <div class="card-body">              
-                  <p class="card-text"> <%= blog.blogDescription %> </p>
+                  <p class="card-text"> <%= blog.description %> </p>
                 </div>
             
                 <div class="card-footer">
-                    <p>--<%= blog.blogDate.toISOString() %> </p>
+                    <p>--<%= blog.createdAt.toISOString() %> </p>
                  </div>
             
               </div>

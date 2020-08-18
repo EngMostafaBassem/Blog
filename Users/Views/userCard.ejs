@@ -1,23 +1,42 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
 <% for( let i = 0; i < blogs.length; i++ ) { %>
-    <div class="col-auto col-md-4 mb-5">
+  <div class="col-auto col-md-4 mb-5">
 
-
-        <div class="card " style="width: 18rem;">
-            <div class="card-header">
-               <%= blogs[i].blogTitle %> 
-            </div>
-            <div class="card-body">
-              
-              <p class="card-text"> <%= blogs[i].blogDescription %> </p>
-              <a href='/blogDetail/<%= blogs[i].blogID %>' class="btn btn-primary">Read More</a>
-            </div>
+  
+      <div class="card " style="width: 18rem;height: 26rem;" >
+    
+         
+          <div class="card-body">   
+           <img   src="../<%=blogs[i].blogImg%>" style="display: block;width: 100%;height: 200px">
         
-            <div class="card-footer">
-                <p><%= blogs[i].blogDate.toISOString() %> </p>
-             </div>
-        
+             <h5 class="card-title">
+                <%= blogs[i].title %> 
+               
+             </h5>
+         
+             <p class="card-text"> <%= blogs[i].description %> </p>
+             <a href='/blogDetail/<%= blogs[i]._id %>' class="btn btn-primary">Read More</a>
+             <p style="color:#555"><%= blogs[i].createdAt.toISOString() %> </p>
           </div>
+
+
+      
+
+        
         
         </div>
+      
+      </div>
 <% } %>

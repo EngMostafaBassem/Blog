@@ -1,37 +1,33 @@
 
+
 <% for( let i = 0; i < blogs.length; i++ ) { %>
-    <div class="col-auto col-md-4 mb-5">
+   <div class="col-auto col-md-4 mb-5">
+
+   
+       <div class="card " style="width: 18rem;height: 26rem;" >
+     
+          
+           <div class="card-body">   
+            <img   src="../<%=blogs[i].blogImg%>" style="display: block;width: 100%;height: 200px">
+         
+              <h5 class="card-title">
+                 <%= blogs[i].title %> 
+                
+              </h5>
+          
+              <p class="card-text"> <%= blogs[i].description %> </p>
+              <a href='dashboard/blogDetail/<%= blogs[i]._id %>' class="btn btn-primary custom-href">Read More</a>
+              <a href='dashboard/editBlog/<%= blogs[i]._id %>' class="btn btn-info custom-href">Edit</a>
+              <a href='dashboard/deleteBlog/<%= blogs[i]._id %>' class="btn btn-danger custom-href">Delete</a>
+              <p style="color:#555"><%= blogs[i].createdAt.toISOString() %> </p>
+           </div>
 
 
-        <div class="card " style="width: 18rem;">
-            <div class="card-header">
-               <%= blogs[i].blogTitle %> 
-            </div>
-            <div class="card-body">
-              
-              <p class="card-text"> <%= blogs[i].blogDescription %> </p>
-              <div class="row">
-             <div class="col-auto col-md-5">
-                <a href='dashboard/blogDetail/<%= blogs[i].blogID %>' class="btn btn-primary custom-href">Read More</a>
-             </div>
-             <div class="col-auto col-md-3">
-                <a href='dashboard/editBlog/<%= blogs[i].blogID %>' class="btn btn-info custom-href">Edit</a>
-             </div>
+       
 
-             <div class="col-auto col-md-1">
-                <a href='dashboard/deleteBlog/<%= blogs[i].blogID %>' class="btn btn-danger custom-href">Delete</a>
-             </div>
-              
-              
-             
-            </div>
-            </div>
-        
-            <div class="card-footer">
-                <p><%= blogs[i].blogDate.toISOString() %> </p>
-             </div>
-        
-          </div>
-        
-        </div>
+         
+         
+         </div>
+       
+       </div>
 <% } %>

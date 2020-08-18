@@ -2,15 +2,24 @@
 <%- include ('../../Shared/Views/header.ejs') -%> 
 
 
-<form class="form mt-5" action="/dashboard/<%=typeof blog !='undefined'?'updateBlog':'addBlog' %>" method="POST">
+<form class="form mt-5" action="/dashboard/<%=typeof blog !='undefined'?'updateBlog':'addBlog' %>" method="POST" enctype="multipart/form-data">
 
+  <% if (typeof(error)!='undefined') { %>
+    <%- include ('../../Shared/Views/Errors.ejs') -%> 
+  <% } %>
+    
     <div class="row d-flex justify-content-center">
         
-      <input type="hidden" name="blogID" value="<%= (typeof blog !='undefined')?blog.blogID:'' %>"/>
+    <% if (typeof blog !='undefined') { %>
+      <input  type="text" hidden name="id" value="<%= blog._id %>"/>
+     <% } %>
+    
+     
+    
 
       <div class="col-auto col-md-6">
         <label >Article Title</label>
-        <input type="text" class="form-control" name="blogTitle"  value="<%= (typeof blog !='undefined')?blog.blogTitle:'' %> "/>
+        <input type="text" class="form-control" name="title"  value="<%= (typeof blog !='undefined')?blog.title:'' %> "/>
       </div>
 
 
@@ -22,9 +31,33 @@
         
     <div class="col-auto col-md-6">
       <label >Article</label>
-      <textarea  class="form-control" name="blogDescription" rows="6" ><%= (typeof blog !='undefined')?blog.blogDescription:'' %> </textarea>
+      <textarea  class="form-control" name="description" rows="6" ><%= (typeof blog !='undefined')?blog.description:'' %> </textarea>
     </div>
   </div>
+
+
+
+  <div class="row d-flex justify-content-center mt-5" >
+        
+    <div class="col-auto col-md-6">
+      <label >Image Upload</label>
+    <input class="form-control" type="file" name="img"/>
+    </div>
+  </div>
+
+
+
+  
+     
+         
+    
+
+
+
+</div>
+
+
+
 
 
     <div class="row d-flex justify-content-center mt-5" >     

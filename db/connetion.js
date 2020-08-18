@@ -1,9 +1,6 @@
 
-const mysql=require('mysql2')
-
-module.exports=mysql.connect({
-    host:'localhost',
-    user:'root',
-    database:'blogDB'
-
-})
+module.exports={
+    dbName:'dbBlog',
+    connectionString:'mongodb+srv://dbfcis:j4MQgkB76feFW7y@cluster0.a5rkl.mongodb.net/<dbBlog>?retryWrites=true&w=majority',
+    port:3001
+}
