@@ -6,6 +6,10 @@ const mongoose=require('mongoose')
 const multer=require('multer')
 const path=require('path')
 const app=express()
+var http=require('http')
+
+var server=http.Server(app)
+
 const userRouter=require('./Users/Routes/userRoutes')
 const adminRouter=require('./Admin/Routes/adminRoutes')
 const connect=mongoose.connect(dbConfig.connectionString,{useNewUrlParser:true,useUnifiedTopology:true})
@@ -40,6 +44,6 @@ app.use(upload)
 app.use('/',userRouter)
 app.use('/dashboard',adminRouter)
 
+server.listen(process.env.PORT||3000)
 
-
-app.listen(process.env.PORT||3000)
+//app.listen(process.env.PORT||3000)
